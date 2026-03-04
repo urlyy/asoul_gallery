@@ -1,0 +1,15 @@
+baseURL = 'https://asoul-gallery.pages.dev'
+languageCode = 'zh-CN'
+title = 'A-SOUL三视图集'
+
+[params]
+  defaultTheme = "dark" # light/dark
+  description = "A-SOUL三视图集"
+  title = "A-SOUL三视图集"
+
+[params.socialIcons]
+    github = "https://github.com/urlyy/asoul_gallery/tree/main/content"
+
+[module]
+  [[module.imports]]
+    path = "github.com/nicokaiser/hugo-theme-gallery/v4"
