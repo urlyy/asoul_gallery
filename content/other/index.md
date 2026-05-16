@@ -5,6 +5,6 @@ resources:
   - src: 贝极星.png
     params:
       cover: true
-  - src: 锅子.png
+  - src: 平底锅.png
     title: "因为视频模糊无法完美复刻，随机生成的大概样子"
 ---
