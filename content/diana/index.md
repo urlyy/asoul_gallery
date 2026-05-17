@@ -6,4 +6,6 @@ resources:
   - src: 帝江.png
     params:
       cover: true
+  - src: 团服紫.png
+    title: "袖套处黑白的内外位置反了，先这样吧"
 ---
