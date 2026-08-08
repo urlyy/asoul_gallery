@@ -15,6 +15,7 @@ B站个人主页：
 - 【贝拉皮肤从夯到拉，拉姐亲排！】 https://www.bilibili.com/video/BV1JT3VzLEVN/?vd_source=a107cbbbff93aef1882c0a285f77bcef
 - 【【A-SOUL】嘉然 2026.1.7 神秘的排行榜！【直播录像】】https://www.bilibili.com/video/BV1a3i1BuE1W/?p=3&share_source=copy_web&vd_source=a107cbbbff93aef1882c0a285f77bcef&t=486
 - 【乃琳皮肤从夯到拉排名】 https://www.bilibili.com/video/BV1ra3EzYEdi/?share_source=copy_web&vd_source=a107cbbbff93aef1882c0a285f77bcef
+- 【乃琳随机舞蹈挑战，百变乃琳皮肤展示，不好不好怎么全是要呼叫枝江消防的舞，大家别看呜呜呜算了一起看👀】 https://www.bilibili.com/video/BV19ygk6BEE4/?share_source=copy_web&vd_source=a107cbbbff93aef1882c0a285f77bcef
 
 # Development
 1. [安装hugo](https://gohugo.io/installation)
