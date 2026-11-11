@@ -10,4 +10,20 @@ resources:
     title: "袖套处黑白的内外位置反了，先这样吧"
   - src: 三周年团服.png
     title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 13.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 14.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 15.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 16.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 17.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 18.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 19.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
+  - src: 20.png
+    title: "由群友 玉米💃🏻💃🏻  制作"
 ---
