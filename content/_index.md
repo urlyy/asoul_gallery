@@ -2,7 +2,7 @@
 description: 使用录播截图+AI自制，仅供非商用、免费使用
 #lastmod: 2023-07-05
 # title: 持续收集制作中...
-title: 暂时停更...(仍欢迎成品图)
+title: 持续更新中...
 # resources:
 #   - src: martin-martz-wRuhOOaG-Z4-unsplash.jpg
 #     params:
