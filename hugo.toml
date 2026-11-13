@@ -2,6 +2,13 @@ baseURL = 'https://asoul-gallery.pages.dev'
 languageCode = 'zh-CN'
 title = '枝江三视图集'
 
+# 每次构建先清掉 public/ 里上次残留的旧文件（比如改规格后遗留的 _hu_*.png）。
+# 等价于命令行 --cleanDestinationDir。本机 Hugo 0.157 用这个顶层写法；
+# 升级到 0.167+ 后如果提示已弃用，改成：
+# [build.cleanDestinationDir]
+#   enable = true
+cleanDestinationDir = true
+
 [params]
   defaultTheme = "dark" # light/dark
   description = "枝江三视图集"
@@ -13,3 +20,9 @@ title = '枝江三视图集'
 [module]
   [[module.imports]]
     path = "github.com/nicokaiser/hugo-theme-gallery/v4"
+
+# 可选：需要 Hugo >= 0.155。确认版本后去掉注释，WebP 会改用 4:4:4（不抽样色度），
+# 线条/黑白交界处更干净。不启用也不影响构建，质量已在处理指令里写死为 q88/q92。
+# [imaging.webp]
+#   hint = 'drawing'
+#   method = 4

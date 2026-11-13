@@ -1,0 +1,56 @@
+<section class="gallery">
+  <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
+    {{ $images := slice }}
+    {{ range $image := where (.Resources.ByType "image") "Params.hidden" "ne" true }}
+      {{ $title := "" }}
+      {{ $date := "" }}
+      {{ with $image.Exif }}
+        {{ $date = .Date }}
+        {{ with .Tags.ImageDescription }}
+          {{/* Title from EXIF ImageDescription */}}
+          {{ $title = . }}
+        {{ end }}
+      {{ end }}
+      {{ if ne $image.Title $image.Name }}
+        {{/* Title from front matter */}}
+        {{ $title = $image.Title }}
+      {{ end }}
+      {{ if $image.Params.Date }}
+        {{/* Date from front matter */}}
+        {{ $date = time $image.Params.Date }}
+      {{ end }}
+      {{ $images = $images | append (dict
+        "Name" $image.Name
+        "Title" $title
+        "Date" $date
+        "image" $image
+        "Params" $image.Params
+        )
+      }}
+    {{ end }}
+    {{ $publishResources := default true .Params.build.publishResources }}
+    {{ range sort $images (.Params.sort_by | default "Name") (.Params.sort_order | default "asc") }}
+      {{ $image := .image }}
+      {{/* Grid thumbnails: WebP, 1x + 2x, so HiDPI screens never upscale a 600px PNG */}}
+      {{ $thumb := $image.Filter (slice images.AutoOrient (images.Process "fit 600x600 webp q88")) }}
+      {{ $thumb2x := $image.Filter (slice images.AutoOrient (images.Process "fit 1200x1200 webp q88")) }}
+      {{/* Lightbox: the original is usually smaller than a resampled PNG, and sharper */}}
+      {{ $full := $image }}
+      {{ if or (gt $image.Width 2048) (gt $image.Height 2048) }}
+        {{ $full = $image.Filter (slice images.AutoOrient (images.Process "fit 2048x2048 webp q92")) }}
+      {{ end }}
+      {{ $color := index $thumb.Colors 0 | default "transparent" }}
+      <a class="gallery-item" href="{{ if $publishResources }}{{ $image.RelPermalink }}{{ else }}{{ $full.RelPermalink }}{{ end }}" data-pswp-src="{{ $full.RelPermalink }}" data-pswp-width="{{ $full.Width }}" data-pswp-height="{{ $full.Height }}" data-pswp-target="{{ $image.Name | urlize }}" title="{{ .Title }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumb.Width }} / {{ $thumb.Height }}">
+        <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumb.Width }} / {{ $thumb.Height }}">
+          <img class="lazyload" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" data-src="{{ $thumb.RelPermalink }}" data-srcset="{{ $thumb.RelPermalink }} {{ $thumb.Width }}w, {{ $thumb2x.RelPermalink }} {{ $thumb2x.Width }}w" data-sizes="(max-width: 640px) 50vw, 33vw" alt="{{ .Title }}" />
+        </figure>
+        <meta itemprop="contentUrl" content="{{ if $publishResources }}{{ $image.RelPermalink }}{{ else }}{{ $full.RelPermalink }}{{ end }}" />
+        {{ with site.Params.Author }}
+          <span itemprop="creator" itemtype="https://schema.org/Person" itemscope>
+            <meta itemprop="name" content="{{ site.Params.Author.name }}" />
+          </span>
+        {{ end }}
+      </a>
+    {{ end }}
+  </div>
+</section>
