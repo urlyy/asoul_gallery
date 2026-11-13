@@ -1,0 +1,17 @@
+{{ if .Title }}
+  <hgroup>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.Description }}
+      <p>{{ . | markdownify }}</p>
+    {{ end }}
+    {{ with .Params.Notice }}
+      {{ if reflect.IsSlice . }}
+        {{ range . }}
+          <p style="color: red;">{{ . | markdownify }}</p>
+        {{ end }}
+      {{ else }}
+        <p style="color: red;">{{ . | markdownify }}</p>
+      {{ end }}
+    {{ end }}
+  </hgroup>
+{{ end }}

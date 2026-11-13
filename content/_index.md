@@ -1,8 +1,12 @@
 ---
 description: 使用录播截图+AI自制，仅供非商用、免费使用
+notice: 不建议作为实体物料/二创绘图的参考图，因为人力和生图模型的不足，会有错误的地方
+#notice:
+#  - 第一行提示
+#  - 第二行提示
 #lastmod: 2023-07-05
 # title: 持续收集制作中...
-title: 基于Seedream5.5持续更新中...
+title: 基于Seedream5.5重制中...
 # resources:
 #   - src: martin-martz-wRuhOOaG-Z4-unsplash.jpg
 #     params:
