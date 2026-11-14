@@ -23,6 +23,6 @@ cleanDestinationDir = true
 
 # 可选：需要 Hugo >= 0.155。确认版本后去掉注释，WebP 会改用 4:4:4（不抽样色度），
 # 线条/黑白交界处更干净。不启用也不影响构建，质量已在处理指令里写死为 q88/q92。
-# [imaging.webp]
-#   hint = 'drawing'
-#   method = 4
+[imaging.webp]
+  hint = 'drawing'
+  method = 4
