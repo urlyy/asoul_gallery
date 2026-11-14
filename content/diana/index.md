@@ -22,7 +22,7 @@ resources:
     title: "由群友 玉米💃🏻💃🏻  制作"
   - src: 18.png
     title: "由群友 玉米💃🏻💃🏻  制作"
-  - src: 20.png
+  - src: 23年生日服.png
     title: "由群友 玉米💃🏻💃🏻  制作"
   - src: 9.png
     title: "由B站用户(uid:21923073) 布拉尼斯拉夫- 制作"
