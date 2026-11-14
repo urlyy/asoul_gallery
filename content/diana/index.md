@@ -3,7 +3,7 @@ title: 嘉然今天吃什么
 weight: 20
 description: B站个人主页：https://space.bilibili.com/672328094
 resources:
-  - src: 16.png
+  - src: 常服.png
     params:
       cover: true
   - src: 团服紫.png
@@ -21,8 +21,6 @@ resources:
   - src: 17.png
     title: "由群友 玉米💃🏻💃🏻  制作"
   - src: 18.png
-    title: "由群友 玉米💃🏻💃🏻  制作"
-  - src: 19.png
     title: "由群友 玉米💃🏻💃🏻  制作"
   - src: 20.png
     title: "由群友 玉米💃🏻💃🏻  制作"
