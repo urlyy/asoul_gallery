@@ -3,7 +3,7 @@ title: 思诺snow
 description: B站个人主页：https://space.bilibili.com/3537115310721781
 weight: 50
 resources:
-  - src: 5.png
+  - src: 0.png
     params:
       cover: true
   - src: 1.png

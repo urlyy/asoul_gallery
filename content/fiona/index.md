@@ -13,5 +13,5 @@ resources:
   - src: 2.png
     title: "由B站用户(uid:21923073) 布拉尼斯拉夫- 制作"
   - src: 3.png
-    title: "由B站用户(uid:13665164) 心宣不是心仪 制作"
+    title: "由B站用户(uid:21923073) 布拉尼斯拉夫- 制作"
 ---
