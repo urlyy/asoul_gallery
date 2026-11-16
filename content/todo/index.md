@@ -2,7 +2,7 @@
 title: TODO
 weight: 0
 resources:
-  - src: eileen_1.png
+  - src: eileen_2.png
     params:
       cover: true
 ---
