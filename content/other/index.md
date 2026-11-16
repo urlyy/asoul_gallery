@@ -2,7 +2,7 @@
 title: 其他
 weight: 60
 resources:
-  - src: 奶淇琳.png
+  - src: 一个魂.png
     params:
       cover: true
   - src: 平底锅.png
