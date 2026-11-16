@@ -1,6 +1,147 @@
 <style>
-  .prompt-list { list-style: none; padding-left: 0; text-align: left; }
-  .prompt-list li::before { content: "- "; }
+  /* ============================================================
+     页脚「可用的提示词」卡片
+     调整宽窄：只改 --prompt-max-width 一个数字
+       760px = 窄 / 820px = 默认 / 960px = 宽
+     提示词正文直接改下面 HTML 里的 .footer-prompt__text 即可。
+     ============================================================ */
+  .footer-prompt {
+    --prompt-max-width: 820px;
+    --prompt-accent: #3ecbff;
+    --prompt-text: #a8e7ff;
+    --prompt-line: rgba(62, 203, 255, 0.18);
+    --prompt-badge-bg: rgba(62, 203, 255, 0.1);
+
+    max-width: var(--prompt-max-width);
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.25rem 1.15rem;
+    border: 1px solid rgba(62, 203, 255, 0.24);
+    border-radius: 14px;
+    background: rgba(62, 203, 255, 0.06);
+    text-align: left;
+  }
+
+  html.light .footer-prompt {
+    --prompt-accent: #0077a7;
+    --prompt-text: #135a72;
+    --prompt-line: rgba(0, 119, 167, 0.15);
+    --prompt-badge-bg: rgba(0, 119, 167, 0.08);
+
+    border-color: rgba(0, 119, 167, 0.22);
+    background: rgba(0, 119, 167, 0.05);
+  }
+
+  .footer-prompt__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    color: var(--prompt-accent);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-prompt__title::before {
+    content: "";
+    width: 3px;
+    height: 1em;
+    border-radius: 2px;
+    background: currentColor;
+  }
+
+  .footer-prompt__list {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: footer-prompt;
+  }
+
+  .footer-prompt__item {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    column-gap: 0.7rem;
+    align-items: start;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--prompt-line);
+  }
+
+  .footer-prompt__item:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .footer-prompt__item::before {
+    counter-increment: footer-prompt;
+    content: counter(footer-prompt);
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.15rem;
+    border: 1px solid var(--prompt-line);
+    border-radius: 999px;
+    background: var(--prompt-badge-bg);
+    color: var(--prompt-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .footer-prompt__meta {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2rem 0.6rem;
+  }
+
+  .footer-prompt__tag {
+    color: var(--prompt-accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .footer-prompt__note {
+    color: var(--text-2);
+    font-size: 0.8rem;
+  }
+
+  .footer-prompt__text {
+    grid-column: 2;
+    margin: 0.2rem 0 0;
+    color: var(--prompt-text);
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+  }
+
+  @media (max-width: 640px) {
+    .footer-prompt {
+      margin: 1.25rem 0.75rem 0;
+      padding: 0.85rem 0.9rem 1rem;
+      border-radius: 12px;
+    }
+
+    .footer-prompt__item {
+      grid-template-columns: 1.35rem minmax(0, 1fr);
+      column-gap: 0.55rem;
+    }
+
+    .footer-prompt__item::before {
+      width: 1.35rem;
+      height: 1.35rem;
+    }
+
+    .footer-prompt__text {
+      font-size: 14px;
+      line-height: 1.75;
+    }
+  }
 </style>
 
 <div style="font-size: 17px;margin-top: 5px;margin-left: 5px;margin-right: 5px;text-align: center;">
@@ -38,10 +179,23 @@
 <div style="font-size: 17px;margin-top: 5px;margin-left: 5px;margin-right: 5px;text-align: center;">
   ps: 在参考图片中加入角色设定(比如名称、<span style="font-weight: bold;">身高</span>)，也可以在生成AI视频时提供参考
 </div>
-<div style="font-size: 17px;margin-top: 5px;margin-left: 5px;margin-right: 5px;text-align: center;color:deepskyblue">
-  <div>可用的提示词: </div>
-  <ol style="text-align: left; margin:0">
-    <li>参考上传的图片，生成全身直立的视图，人物完全朝向正 前/后/左/右 方，白色背景，保持面部、身体比例、饰品等细节和参考图一致，不要底部阴影，9:16。</li>
-    <li>参考上传的图片，为图中角色制作四视图，保持角色一致性，A-POSE，透明背景。</li>
+
+<section class="footer-prompt" aria-label="可用的提示词">
+  <p class="footer-prompt__title">可用的提示词</p>
+  <ol class="footer-prompt__list">
+    <li class="footer-prompt__item">
+      <div class="footer-prompt__meta">
+        <span class="footer-prompt__tag">单视图生成</span>
+        <span class="footer-prompt__note">清晰，但需要更多抽卡次数</span>
+      </div>
+      <p class="footer-prompt__text">参考上传的图片，生成全身直立的视图，人物完全朝向正 前/后/左/右 方，白色背景，保持面部、身体比例、饰品等细节和参考图一致，不要底部阴影，9:16。</p>
+    </li>
+    <li class="footer-prompt__item">
+      <div class="footer-prompt__meta">
+        <span class="footer-prompt__tag">一次生成</span>
+        <span class="footer-prompt__note">方便，但模糊且细节更容易出错</span>
+      </div>
+      <p class="footer-prompt__text">参考上传的图片，为图中角色制作四视图，保持角色一致性，A-POSE，透明背景。</p>
+    </li>
   </ol>
-</div>
+</section>
