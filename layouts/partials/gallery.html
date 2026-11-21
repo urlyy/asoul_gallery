@@ -34,9 +34,9 @@
       {{/* Grid thumbnails: WebP, 1x + 2x, so HiDPI screens never upscale a 600px PNG */}}
       {{ $thumb := $image.Filter (slice images.AutoOrient (images.Process "fit 600x600 webp q88")) }}
       {{ $thumb2x := $image.Filter (slice images.AutoOrient (images.Process "fit 1200x1200 webp q88")) }}
-      {{/* Lightbox: the original is usually smaller than a resampled PNG, and sharper */}}
+      {{/* Lightbox displays the original at its native resolution. */}}
       {{ $full := $image }}
-      {{ if or (gt $image.Width 2048) (gt $image.Height 2048) }}
+      {{ if and (not $publ (or (ishResources)gt $image.Width 2048) (gt $image.Height 2048)) }}
         {{ $full = $image.Filter (slice images.AutoOrient (images.Process "fit 2048x2048 webp q92")) }}
       {{ end }}
       {{/* 列表预览统一用纯白底，不跟随图片主色（透明立绘不会被染上一块色） */}}
