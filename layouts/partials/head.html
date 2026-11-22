@@ -44,5 +44,26 @@
   }}
   {{ $js := resources.Get "js/main.js" | js.Build (dict "minify" true "params" $params) | resources.Fingerprint }}
   <script src="{{ $js.RelPermalink }}" defer></script>
+  <style>
+    .pswp__dynamic-caption {
+      -webkit-user-select: text;
+      user-select: text;
+      touch-action: auto;
+    }
+  </style>
+  <script type="module">
+    const captionPointers = new Set();
+    for (const type of ["pointerdown", "pointermove", "pointerup", "pointercancel"]) {
+      document.addEventListener(type, (event) => {
+        const id = event.pointerId;
+        if (type === "pointerdown" && event.target.closest(".pswp__dynamic-caption")) {
+          captionPointers.add(id);
+        }
+        if (!captionPointers.has(id)) return;
+        event.stopPropagation();
+        if (type === "pointerup" || type === "pointercancel") captionPointers.delete(id);
+      }, true);
+    }
+  </script>
   {{- partial "head-custom.html" . -}}
 </head>
