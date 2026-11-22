@@ -6,8 +6,6 @@ resources:
   - src: 25.png
     params:
       cover: true
-  - src: 团服紫.png
-    title: "袖套处黑白的内外位置反了，先这样吧"
   - src: 三周年团服.png
     title: "由群友 玉米💃🏻💃🏻  制作"
   - src: 13.png
