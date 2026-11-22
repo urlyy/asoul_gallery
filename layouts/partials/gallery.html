@@ -36,7 +36,7 @@
       {{ $thumb2x := $image.Filter (slice images.AutoOrient (images.Process "fit 1200x1200 webp q88")) }}
       {{/* Lightbox displays the original at its native resolution. */}}
       {{ $full := $image }}
-      {{ if and (not $publ (or (ishResources)gt $image.Width 2048) (gt $image.Height 2048)) }}
+      {{ if and (not $publishResources) (or (gt $image.Width 2048) (gt $image.Height 2048)) }}
         {{ $full = $image.Filter (slice images.AutoOrient (images.Process "fit 2048x2048 webp q92")) }}
       {{ end }}
       {{/* 列表预览统一用纯白底，不跟随图片主色（透明立绘不会被染上一块色） */}}
