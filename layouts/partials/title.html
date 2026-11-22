@@ -1,8 +1,11 @@
 {{ if .Title }}
-  <hgroup>
-    <h1>{{ .Title }}</h1>
+  <hgroup{{ if .Params.update_note }} style="row-gap: 0.25rem;"{{ end }}>
+    <h1{{ if .Params.update_note }} style="margin-bottom: 1.25rem;"{{ end }}>{{ .Title }}</h1>
     {{ with .Params.Description }}
       <p>{{ . | markdownify }}</p>
+    {{ end }}
+    {{ with .Params.update_note }}
+      <p>{{ . }}</p>
     {{ end }}
     {{ with .Params.Notice }}
       {{ if reflect.IsSlice . }}
