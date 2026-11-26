@@ -4,7 +4,7 @@ weight: 10
 date: 2026-02-26
 description: B站个人主页：https://space.bilibili.com/672353429
 resources:
-  - src: pico.png
+  - src: jk紫.png
     params:
       cover: true
   - src: 五周年团服.png
