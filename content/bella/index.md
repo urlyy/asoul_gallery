@@ -24,5 +24,5 @@ resources:
   - src: 25年生日服_1.png
     title: "由B站用户(uid:21923073) 布拉尼斯拉夫- 制作"
   - src: 7.png
-    title: "https://www.bilibili.com/video/BV15v4y1J71R"
+    title: "BV15v4y1J71R"
 ---
